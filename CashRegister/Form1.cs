@@ -30,14 +30,12 @@ namespace CashRegister
         {
             InitializeComponent();
         }
-
         private void totalButton_Click(object sender, EventArgs e)
         {
             SoundPlayer player1 = new SoundPlayer(Properties.Resources.CashRegister);
             player1.Play();
             try
             {
-               
                 numOfUrus = Convert.ToInt32(urusInput.Text);
                 numOfHuracan = Convert.ToInt32(huracanInput.Text);
                 numOfAventador = Convert.ToInt32(aventadorInput.Text);
@@ -49,7 +47,6 @@ namespace CashRegister
                 subtotalOutput.Text = $"{subtotal.ToString("C")}";
                 taxOutput.Text = $"{taxAmount.ToString("C")}";
                 totalOutput.Text = $"{total.ToString("C")}";
-
             }
             catch
             {
@@ -58,25 +55,22 @@ namespace CashRegister
                 totalOutput.Text = "";
             }
         }
-
         private void changeButton_Click(object sender, EventArgs e)
         {
-
             tendered = Convert.ToDouble(tenderedInput.Text);
             change = tendered - total;
+
             changeOutput.Text = $"{change.ToString("C")}";
+
             if(tendered > total || tendered == total)
             { 
                 changeOutput.Text = $"{ change.ToString("C")}"; 
             }
-
             if (tendered < total)
             {
             changeOutput.Text = $"Insufficient Funds";
             }
-           
         }
-
         private void receiptButton_Click(object sender, EventArgs e)
         {
             receiptLabel.Text = "                                                     Wills Car Shop.";
@@ -98,7 +92,6 @@ namespace CashRegister
             SoundPlayer player2 = new SoundPlayer(Properties.Resources.SVJTrimmed);
             player2.Play();
         }
-
         private void resetButton_Click(object sender, EventArgs e)
         {
             urusInput.Text = "";
