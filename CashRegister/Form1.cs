@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Cash register Program
+//Will Deichert
+//Marcg 6, 2024
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,69 +34,109 @@ namespace CashRegister
         {
             InitializeComponent();
         }
-        private void totalButton_Click(object sender, EventArgs e)
+        private void totalButton_Click(object sender, EventArgs e) //Calculates Subtotal, Tax Amount and Total Cost of the purchase
+
         {
             SoundPlayer player1 = new SoundPlayer(Properties.Resources.CashRegister);
             player1.Play();
             try
             {
-                numOfUrus = Convert.ToInt32(urusInput.Text);
+                numOfUrus = Convert.ToInt32(urusInput.Text); //The number of each car purchased
                 numOfHuracan = Convert.ToInt32(huracanInput.Text);
                 numOfAventador = Convert.ToInt32(aventadorInput.Text);
 
-                subtotal = (numOfAventador * aventadorPrice) + (numOfUrus * urusPrice) + (numOfHuracan * huracanPrice);
+                subtotal = (numOfAventador * aventadorPrice) + (numOfUrus * urusPrice) + (numOfHuracan * huracanPrice); // Calculates total, subtotal and tax amount
                 taxAmount = subtotal * taxRate;
                 total = taxAmount + subtotal;
 
-                subtotalOutput.Text = $"{subtotal.ToString("C")}";
+                subtotalOutput.Text = $"{subtotal.ToString("C")}"; //Output text for subtotal total and tax amount.
                 taxOutput.Text = $"{taxAmount.ToString("C")}";
                 totalOutput.Text = $"{total.ToString("C")}";
+
+                changeButton.Enabled = true;
             }
             catch
             {
-                subtotalOutput.Text = "ERROR";
+                subtotalOutput.Text = "ERROR"; //error message that gets displayed when a letter is part of the input.
                 taxOutput.Text = "";
                 totalOutput.Text = "";
             }
         }
-        private void changeButton_Click(object sender, EventArgs e)
+        private void changeButton_Click(object sender, EventArgs e) //After paying this button calculates your change based off of the tendered amount.
         {
-            tendered = Convert.ToDouble(tenderedInput.Text);
-            change = tendered - total;
-
-            changeOutput.Text = $"{change.ToString("C")}";
-
-            if(tendered > total || tendered == total)
-            { 
-                changeOutput.Text = $"{ change.ToString("C")}"; 
-            }
-            if (tendered < total)
+            try
             {
-            changeOutput.Text = $"Insufficient Funds";
+                tendered = Convert.ToDouble(tenderedInput.Text);
+                change = tendered - total; //calculation for the amount of change that is owed
+
+                changeOutput.Text = $"{change.ToString("C")}";
+
+                if (tendered > total || tendered == total)
+                {
+                    changeOutput.Text = $"{ change.ToString("C")}"; // Output text for the change amount
+                }
+                if (tendered < total)
+                {
+                    changeOutput.Text = $"Insufficient Funds"; // Message to display insufficeint funds when Tendered is less than total.
+                }
+                receiptButton.Enabled = true;
             }
+            catch 
+            {
+                changeOutput.Text = "ERROR"; // Error code incase letters are part of the input
+            }
+
         }
-        private void receiptButton_Click(object sender, EventArgs e)
+        private void receiptButton_Click(object sender, EventArgs e) //Prints receipt with all purchase info
         {
-            receiptLabel.Text = "                                                     Wills Car Shop.";
+            SoundPlayer player4 = new SoundPlayer(Properties.Resources.Printer); // plays printing sound
+            player4.Play();
+          
+            Refresh();
+            Thread.Sleep(500);// makes recepit print line by line
+            receiptLabel.Text = "                             Will's Car Shop."; // text for recepit
+            Refresh();
+            Thread.Sleep(500);
             receiptLabel.Text += $"\n\n   June 29, 2020";
-            receiptLabel.Text += $"\n\n   Aventadors x{numOfAventador} @ ${aventadorPrice}.00";
-            receiptLabel.Text += $"\n   Huracans x{numOfHuracan} @ ${huracanPrice}.00";
-            receiptLabel.Text += $"\n   urus x{numOfUrus} @ ${huracanPrice}.00";
-            receiptLabel.Text += $"\n\n   Subtotal:          ${subtotal}";
-            receiptLabel.Text += $"\n   Tax:                 ${taxAmount}";
-            receiptLabel.Text += $"\n   Total:               ${total}";
-            receiptLabel.Text += $"\n\n   Tendered            ${tendered}";
-            receiptLabel.Text += $"\n   Change               ${change}";
-            receiptLabel.Text += $"\n\n   Thank you for your purchase of {numOfAventador} Aventador, {numOfHuracan} Huracan and {numOfUrus} Urus";
+            Refresh();
+            Thread.Sleep(500);
+            receiptLabel.Text += $"\n\n   Aventadors x{numOfAventador} @   ${aventadorPrice}.00";
+            Refresh();
+            Thread.Sleep(500);
+            receiptLabel.Text += $"\n   Huracans x{numOfHuracan} @        ${huracanPrice}.00";
+            Refresh();
+            Thread.Sleep(500);
+            receiptLabel.Text += $"\n   Urus x{numOfUrus} @                 ${huracanPrice}.00";
+            Refresh();
+            Thread.Sleep(500);
+            receiptLabel.Text += $"\n\n   Subtotal:                     ${subtotal}";
+            Refresh();
+            Thread.Sleep(500);
+            receiptLabel.Text += $"\n   Tax:                              ${taxAmount}";
+            Refresh();
+            Thread.Sleep(500);
+            receiptLabel.Text += $"\n   Total:                           ${total}";
+            Refresh();
+            Thread.Sleep(500);
+            receiptLabel.Text += $"\n\n   Tendered:                 ${tendered}";
+            Refresh();
+            Thread.Sleep(500);
+            receiptLabel.Text += $"\n   Change:                     ${change}";
+            Refresh();
+            Thread.Sleep(500);
+            receiptLabel.Text += $"\n\n   Thank you for your purchase";
+            Refresh();
+            Thread.Sleep(500);
             receiptLabel.Text += $"\n   Have a nice day.";
+           
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             SoundPlayer player2 = new SoundPlayer(Properties.Resources.SVJTrimmed);
-            player2.Play();
+            player2.Play(); // easter egg code
         }
-        private void resetButton_Click(object sender, EventArgs e)
+        private void resetButton_Click(object sender, EventArgs e) //resets the code for all variables and text.
         {
             urusInput.Text = "";
             aventadorInput.Text = "";
@@ -103,7 +147,19 @@ namespace CashRegister
             receiptLabel.Text = "";
             changeOutput.Text = "";
             tenderedInput.Text = "";
+            numOfAventador = 0;
+            numOfHuracan = 0;
+            numOfUrus = 0;
+            total = 0;
+            change = 0;
+            tendered = 0;
+            taxAmount = 0;
+            subtotal = 0;
+            changeButton.Enabled = false;
+            receiptButton.Enabled = false;
 
         }
+
+
     }
 }

@@ -63,11 +63,11 @@
             this.willsshopLabel.AutoSize = true;
             this.willsshopLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.willsshopLabel.ForeColor = System.Drawing.Color.Gold;
-            this.willsshopLabel.Location = new System.Drawing.Point(318, 18);
+            this.willsshopLabel.Location = new System.Drawing.Point(199, 18);
             this.willsshopLabel.Name = "willsshopLabel";
-            this.willsshopLabel.Size = new System.Drawing.Size(168, 25);
+            this.willsshopLabel.Size = new System.Drawing.Size(173, 25);
             this.willsshopLabel.TabIndex = 0;
-            this.willsshopLabel.Text = "Wills Car Shop";
+            this.willsshopLabel.Text = "Will\'s Car Shop";
             // 
             // aventadorLabel
             // 
@@ -231,6 +231,7 @@
             // changeButton
             // 
             this.changeButton.BackColor = System.Drawing.Color.Black;
+            this.changeButton.Enabled = false;
             this.changeButton.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeButton.ForeColor = System.Drawing.Color.Gold;
@@ -263,6 +264,7 @@
             // receiptButton
             // 
             this.receiptButton.BackColor = System.Drawing.Color.Black;
+            this.receiptButton.Enabled = false;
             this.receiptButton.FlatAppearance.BorderColor = System.Drawing.Color.Gold;
             this.receiptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.receiptButton.ForeColor = System.Drawing.Color.Gold;
@@ -283,7 +285,7 @@
             this.receiptLabel.ForeColor = System.Drawing.Color.Gold;
             this.receiptLabel.Location = new System.Drawing.Point(313, 69);
             this.receiptLabel.Name = "receiptLabel";
-            this.receiptLabel.Size = new System.Drawing.Size(410, 357);
+            this.receiptLabel.Size = new System.Drawing.Size(285, 357);
             this.receiptLabel.TabIndex = 22;
             // 
             // receiptBorderLabel
@@ -292,14 +294,14 @@
             this.receiptBorderLabel.ForeColor = System.Drawing.Color.Gold;
             this.receiptBorderLabel.Location = new System.Drawing.Point(302, 61);
             this.receiptBorderLabel.Name = "receiptBorderLabel";
-            this.receiptBorderLabel.Size = new System.Drawing.Size(431, 380);
+            this.receiptBorderLabel.Size = new System.Drawing.Size(311, 380);
             this.receiptBorderLabel.TabIndex = 23;
             this.receiptBorderLabel.Text = "label3";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CashRegister.Properties.Resources.Lambo_no_back;
-            this.pictureBox1.Location = new System.Drawing.Point(492, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(378, 18);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -316,7 +318,7 @@
             this.resetButton.ForeColor = System.Drawing.Color.Gold;
             this.resetButton.Location = new System.Drawing.Point(297, 455);
             this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(436, 40);
+            this.resetButton.Size = new System.Drawing.Size(316, 40);
             this.resetButton.TabIndex = 25;
             this.resetButton.Text = "New Purchase";
             this.resetButton.UseVisualStyleBackColor = false;
@@ -327,7 +329,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1047, 550);
+            this.ClientSize = new System.Drawing.Size(631, 550);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.receiptLabel);

@@ -82,6 +82,15 @@ namespace CashRegister.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Printer {
+            get {
+                return ResourceManager.GetStream("Printer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream SVJTrimmed {
             get {
                 return ResourceManager.GetStream("SVJTrimmed", resourceCulture);
